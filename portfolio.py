@@ -6,49 +6,12 @@ app = Flask(__name__)
 def home_page():
     return render_template('index.html')
 
-'''
-@app.route('/index.html')
-def index_page():
-    return render_template('index.html')
-
-@app.route('/works.html')
-def works_page():
-    return render_template('works.html')
-
-@app.route('/work.html')
-def work_page():
-    return render_template('work.html')
-
-@app.route('/about.html')
-def about_page():
-    return render_template('about.html')
-
-@app.route('/contact.html')
-def contact_page():
-    return render_template('contact.html')
-'''
 
 @app.route('/<string:page_name>')
 def html_page(page_name):
     return render_template(page_name)
 
-'''
-In contact.html, we have added action inn line 62 as Submit_form and method as post
-so when form is submitted in web page,it will post info to user
-as form submitted huraayyy!
-'''
 
-'''
-I have added name attributes(email,subject,message) in contact/html for forms
-and user details will be recieved by browser, check in developer tools
-'''
-
-def write_to_file(data):  # Getting user's filled form data into file.txt
-    with open('database.txt',mode='a') as database:
-        email = data['email']
-        subject = data['subject']
-        message = data['message']
-        database.write(f'\n{email}, {subject}, {message}')
 
 def write_to_csv(data):  # Getting user's filled form data into file.txt
     with open('database.csv',mode='a',newline='') as database2:
